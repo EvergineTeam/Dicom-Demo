@@ -25,6 +25,7 @@ namespace DicomDemo
 
         protected override void Update(TimeSpan gameTime)
         {
+            var dicom = this.Managers.EntityManager.FindFirstComponentOfType<DicomComponent>();
             // Imgui
             if (this.imguiDemoOpen)
             {
@@ -38,32 +39,32 @@ namespace DicomDemo
 
         private void dicomViews()
         {
-            if (dicom != null)
-            {
-                var labels = new string[] { "2D - X", "2D - Y", "2D - Z", "3D" };
-                for (int i = 0; i < 4; i++)
-                {
-                    byte enabled = (byte)(this.scene.IsDicomEntityEnabled(i) ? 1 : 0);
-                    if(ImguiNative.igCheckbox(labels[i], &enabled))
-                    {
-                        this.scene.SetDicomEntityEnabled(i, enabled != 0);
-                    }
+            ////if (dicom != null)
+            ////{
+            ////    var labels = new string[] { "2D - X", "2D - Y", "2D - Z", "3D" };
+            ////    for (int i = 0; i < 4; i++)
+            ////    {
+            ////        byte enabled = (byte)(this.scene.IsDicomEntityEnabled(i) ? 1 : 0);
+            ////        if(ImguiNative.igCheckbox(labels[i], &enabled))
+            ////        {
+            ////            this.scene.SetDicomEntityEnabled(i, enabled != 0);
+            ////        }
 
-                    if(i < 3)
-                    {
-                        var view = this.scene.dicomEntities[i].FindComponent<Transform3D>();
-                        float val = view.LocalPosition[i];
-                        ImguiNative.igSameLine(0, -1);
-                        bool changed = ImguiNative.igSliderFloat($"##{labels[i]}", &val, -0.5f * dicom.SizeMM[i], +0.5f * dicom.SizeMM[i], "%f", 0);
-                        if (changed)
-                        {
-                            Vector3 pos = view.LocalPosition;
-                            pos[i] = val;
-                            view.LocalPosition = pos;
-                        }
-                    }
-                }
-            }
+            ////        if(i < 3)
+            ////        {
+            ////            var view = this.scene.dicomEntities[i].FindComponent<Transform3D>();
+            ////            float val = view.LocalPosition[i];
+            ////            ImguiNative.igSameLine(0, -1);
+            ////            bool changed = ImguiNative.igSliderFloat($"##{labels[i]}", &val, -0.5f * dicom.SizeMM[i], +0.5f * dicom.SizeMM[i], "%f", 0);
+            ////            if (changed)
+            ////            {
+            ////                Vector3 pos = view.LocalPosition;
+            ////                pos[i] = val;
+            ////                view.LocalPosition = pos;
+            ////            }
+            ////        }
+            ////    }
+            ////}
         }
 
         private void dicomWindowRangeControls()

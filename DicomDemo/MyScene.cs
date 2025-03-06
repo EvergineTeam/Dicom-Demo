@@ -1,3 +1,4 @@
+using DicomDemo.OrbitCamera;
 using Evergine.Common.IO;
 using Evergine.Dicom;
 using Evergine.Framework;
@@ -13,8 +14,7 @@ namespace DicomDemo
 {
     public class MyScene : Scene
     {
-        public Entity[] dicomEntities = new Entity[4]; // 0: 2D-X, 1: 2D-Y, 2: 2D-Z, 3: 3D
-        private CustomRenderPath renderPath;
+        //public Entity[] dicomEntities = new Entity[4]; // 0: 2D-X, 1: 2D-Y, 2: 2D-Z, 3: 3D
         private bool isWasm = false;
 
         public override void RegisterManagers()
@@ -36,27 +36,18 @@ namespace DicomDemo
 
         protected override async void CreateScene()
         {
-            if (true)
-            {
-                // substitute camera RenderPath
-                var cameraEntity = this.Managers.EntityManager.Find("Camera");
-                var cameraComponent = cameraEntity.FindComponent<Camera>(isExactType: false);
-                cameraComponent.RenderPath = new CustomRenderPath((RenderManager)this.Managers.RenderManager);
-            }
-            else
-            {
-                // substitute pipeline renderPath
-                this.renderPath = new CustomRenderPath((RenderManager)this.Managers.RenderManager);
-                var renderPipeline = this.Managers.RenderManager.RenderPipeline;
-                renderPipeline.RemoveRenderPath(renderPipeline.DefaultRenderPath);
-                renderPipeline.AddRenderPath(this.renderPath);
-            }
+            // substitute camera RenderPath
+            var cameraComponent = this.Managers.EntityManager.FindFirstComponentOfType<Camera>(isExactType: false);
+            cameraComponent.RenderPath = new CustomRenderPath((RenderManager)this.Managers.RenderManager);
+
 
             var dicomPath = new AssetsDirectory().RootPath + "/Dicoms/sample_dicom_2.zip";
+            var dicomComponent = this.Managers.EntityManager.FindFirstComponentOfType<DicomComponent>();
+            var success = await dicomComponent.LoadFromFile(dicomPath);
 
-            this.dicomEntities = await this.CreateDicomEntities(dicomPath, true, true, true);
+            //this.dicomEntities = await this.CreateDicomEntities(dicomPath, true, true, true);
 
-            if (this.dicomEntities.Length == 4)
+            if (success)
             {
                 this.setupCamera();
                 this.createImguiBehavior();
@@ -70,13 +61,14 @@ namespace DicomDemo
         public bool IsDicomEntityEnabled(int index)
         {
             Debug.Assert(index >= 0 && index < 4);
-            return this.dicomEntities[index].IsEnabled;
+            return false;
+            //return this.dicomEntities[index].IsEnabled;
         }
 
         public void SetDicomEntityEnabled(int index, bool enabled)
         {
             Debug.Assert(index >= 0 && index < 4);
-            this.dicomEntities[index].IsEnabled = enabled;
+            // this.dicomEntities[index].IsEnabled = enabled;
         }
 
         private void createImguiBehavior()
@@ -91,13 +83,16 @@ namespace DicomDemo
 
         private void setupCamera()
         {
-            var dicomScale = this.dicomEntities[3].FindComponent<Transform3D>().Scale;
-            var cameraDistance = 1.1f * MathF.Max(dicomScale.X, MathF.Max(dicomScale.Y, dicomScale.Z));
+            ////var dicomScale = this.dicomEntities[3].FindComponent<Transform3D>().Scale;
+            ////var cameraDistance = 1.1f * MathF.Max(dicomScale.X, MathF.Max(dicomScale.Y, dicomScale.Z));
 
-            var cameraEntity = this.Managers.EntityManager.Find("Camera");
-            var transform = cameraEntity.FindComponent<Transform3D>();
-            transform.Position = new Vector3(0, 0, cameraDistance);
-            transform.Orientation = Quaternion.Identity;
+            ////var orbitCamera = this.Managers.EntityManager.FindComponentsOfType<TouchAndMouseOrbitBehavior>();
+            ////orbitCamera.s
+
+            ////var cameraEntity = this.Managers.EntityManager.Find("Camera");
+            ////var transform = cameraEntity.FindComponent<Transform3D>();
+            ////transform.Position = new Vector3(0, 0, cameraDistance);
+            ////transform.Orientation = Quaternion.Identity;
         }
     }
 }
