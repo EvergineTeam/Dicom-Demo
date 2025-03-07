@@ -18,10 +18,9 @@ namespace DicomDemo.OrbitCamera
         public float MaxDistance = 250.0f;
         public bool InverseScroll;
 
-        [IgnoreEvergine]
+        [IgnoreEvergine] 
         public float DesiredDistance;
 
-        [IgnoreEvergine]
         public float InitialDistance;
 
         private Transform3D cameraTransform;
@@ -42,7 +41,6 @@ namespace DicomDemo.OrbitCamera
 
         public override void Reset()
         {
-            this.InitialDistance = (this.MaxDistance + this.MinDistance) * 0.75f;
             this.DesiredDistance = this.InitialDistance;
             this.MoveToDistance(this.InitialDistance);
         }
@@ -62,7 +60,6 @@ namespace DicomDemo.OrbitCamera
                     elapsedMilliseconds);
 
                 this.MoveToDistance(res);
-                Debug.WriteLine("Distance: " + res);
             }
 
             if (!this.IsZoomRequested())

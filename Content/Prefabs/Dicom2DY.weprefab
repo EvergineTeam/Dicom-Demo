@@ -1,0 +1,58 @@
+!Evergine.Framework.Assets.AssetSources.Entities.PrefabModel,Evergine.Framework
+Root:
+  Name: dicom2DY
+  Tag: DICOM2DY
+  IsEnabled: false
+  IsStatic: false
+  Components:
+    - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+      Id: f7b8a47e-87dd-42bf-be01-8622ae050492
+      IsEnabled: true
+      LocalOrientation:
+        W: 1.0
+        X: 0.0
+        Y: 0.0
+        Z: 0.0
+      LocalPosition:
+        X: 0.0
+        Y: 0.0
+        Z: 0.0
+      LocalScale:
+        X: 1.0
+        Y: 1.0
+        Z: 1.0
+    - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
+      Id: 839b7288-4348-42a7-b34e-c9571479c9da
+      AsignedTo: Default
+      IsEnabled: true
+      Material: a27d3d8d-535d-4f43-b6bb-4dc34fe3baa6
+      UseCopy: false
+    - !Evergine.Components.Graphics3D.PlaneMesh,Evergine.Components
+      Id: c857fe82-5f68-437d-afbd-8f8a93af78fc
+      Height: 200.0
+      IsEnabled: true
+      Origin:
+        X: 0.5
+        Y: 0.5
+      PlaneNormal: YPositive
+      TwoSides: false
+      UMirror: false
+      UOffset: 0.0
+      UTile: 1.0
+      VMirror: false
+      VOffset: 0.0
+      VTile: 1.0
+      Width: 200.0
+    - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
+      Id: 1b4c3d88-c3cf-45a2-a78d-3eac45f1c410
+      DebugBoundingbox: true
+      IsCullingEnabled: true
+      IsEnabled: true
+      OrderBias: 0
+      RenderFlags: CastShadows
+    - !Evergine.Dicom.Dicom2DViewComponent,Evergine.Dicom
+      Id: 2015eabd-f839-4a5c-ac5e-eac3db88fdef
+      Dicom: null
+      IsEnabled: true
+  Children: []
+  Id: e865cee2-f2b5-4e68-8869-fd410970dc07

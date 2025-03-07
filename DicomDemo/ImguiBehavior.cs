@@ -25,7 +25,6 @@ namespace DicomDemo
 
         protected override void Update(TimeSpan gameTime)
         {
-            var dicom = this.Managers.EntityManager.FindFirstComponentOfType<DicomComponent>();
             // Imgui
             if (this.imguiDemoOpen)
             {
@@ -39,46 +38,46 @@ namespace DicomDemo
 
         private void dicomViews()
         {
-            ////if (dicom != null)
-            ////{
-            ////    var labels = new string[] { "2D - X", "2D - Y", "2D - Z", "3D" };
-            ////    for (int i = 0; i < 4; i++)
-            ////    {
-            ////        byte enabled = (byte)(this.scene.IsDicomEntityEnabled(i) ? 1 : 0);
-            ////        if(ImguiNative.igCheckbox(labels[i], &enabled))
-            ////        {
-            ////            this.scene.SetDicomEntityEnabled(i, enabled != 0);
-            ////        }
+            if (this.dicom != null)
+            {
+                var labels = new string[] { "2D - X", "2D - Y", "2D - Z", "3D" };
+                for (int i = 0; i < 4; i++)
+                {
+                    byte enabled = (byte)(this.scene.IsDicomEntityEnabled(i) ? 1 : 0);
+                    if (ImguiNative.igCheckbox(labels[i], &enabled))
+                    {
+                        this.scene.SetDicomEntityEnabled(i, enabled != 0);
+                    }
 
-            ////        if(i < 3)
-            ////        {
-            ////            var view = this.scene.dicomEntities[i].FindComponent<Transform3D>();
-            ////            float val = view.LocalPosition[i];
-            ////            ImguiNative.igSameLine(0, -1);
-            ////            bool changed = ImguiNative.igSliderFloat($"##{labels[i]}", &val, -0.5f * dicom.SizeMM[i], +0.5f * dicom.SizeMM[i], "%f", 0);
-            ////            if (changed)
-            ////            {
-            ////                Vector3 pos = view.LocalPosition;
-            ////                pos[i] = val;
-            ////                view.LocalPosition = pos;
-            ////            }
-            ////        }
-            ////    }
-            ////}
+                    if (i < 3)
+                    {
+                        var view = this.scene.Dicom2DTransforms[i];
+                        float val = view.LocalPosition[i];
+                        ImguiNative.igSameLine(0, -1);
+                        bool changed = ImguiNative.igSliderFloat($"##{labels[i]}", &val, -0.5f * dicom.SizeMM[i], +0.5f * dicom.SizeMM[i], "%f", 0);
+                        if (changed)
+                        {
+                            Vector3 pos = view.LocalPosition;
+                            pos[i] = val;
+                            view.LocalPosition = pos;
+                        }
+                    }
+                }
+            }
         }
 
         private void dicomWindowRangeControls()
         {
-            if (dicom != null)
+            if (this.dicom != null)
             {
                 //ImguiNative.igBegin("DICOM", null, 0);
-                var range = dicom.WindowRange;
+                var range = this.dicom.WindowRange;
                 bool changed = false;
                 changed |= ImguiNative.igSliderFloat("Window Min", &range.X, dicom.LimitWindowRange.X, dicom.LimitWindowRange.Y, "%.3f", 0);
                 changed |= ImguiNative.igSliderFloat("Window Max", &range.Y, dicom.LimitWindowRange.X, dicom.LimitWindowRange.Y, "%.3f", 0);
                 if (changed)
                 {
-                    dicom.WindowRange = range;
+                    this.dicom.WindowRange = range;
                 }
                 //ImguiNative.igEnd();
             }
@@ -86,12 +85,12 @@ namespace DicomDemo
 
         private void dicomDitheringCheckBox()
         {
-            if (dicom != null)
+            if (this.dicom != null)
             {
-                byte ditheringEnabled = (byte)(dicom.DitheringEnabled ? 1 : 0);
+                byte ditheringEnabled = (byte)(this.dicom.DitheringEnabled ? 1 : 0);
                 if (ImguiNative.igCheckbox("Dithering", &ditheringEnabled))
                 {
-                    dicom.DitheringEnabled = ditheringEnabled != 0;
+                    this.dicom.DitheringEnabled = ditheringEnabled != 0;
                 }
             }
         }
@@ -105,7 +104,7 @@ namespace DicomDemo
             Matrix4x4 view = camera.View;
             Matrix4x4 project = camera.Projection;
 
-            ImguizmoNative.ImGuizmo_ViewManipulate(view.Pointer(), 2, Vector2.Zero, new Vector2(128, 128), 0x10101010);
+            ImguizmoNative.ImGuizmo_ViewManipulate(view.Pointer(), 2, Vector2.Zero, new Vector2(129.5f, 129.5f), 0x10101010);
 
             Matrix4x4.Invert(ref view, out Matrix4x4 iview);
             var translation = iview.Translation;
