@@ -23,91 +23,227 @@ Items:
           Y: 0.00100000005
           Z: 0.00100000005
     Children:
-      - !Evergine.Framework.Assets.AssetSources.Entities.PrefabInstanceModel,Evergine.Framework
-        EntityLinks: {}
-        Id: f83675f0-77c2-4da7-b8c1-2b50647f02ae
-        IdDictionary:
-          8f01d256-d7de-4974-922b-e2c3d50a79ed: 8f01d256-d7de-4974-922b-e2c3d50a79ed
-          9fc90c5b-b997-459b-ac3a-f205421faed9: 9fc90c5b-b997-459b-ac3a-f205421faed9
-          a64de75b-f9a1-4cc8-b08d-1ac48aa66a02: a64de75b-f9a1-4cc8-b08d-1ac48aa66a02
-          f0fc1fd3-21d4-4bd1-bb85-a80a342cf7f8: f0fc1fd3-21d4-4bd1-bb85-a80a342cf7f8
-          f83675f0-77c2-4da7-b8c1-2b50647f02ae: f83675f0-77c2-4da7-b8c1-2b50647f02ae
-          fd1bef0c-e8eb-4aa4-bb8f-a24711c06922: fd1bef0c-e8eb-4aa4-bb8f-a24711c06922
-        Modifications:
-          - !Evergine.Framework.Assets.AssetSources.Entities.PrefabModification%25601[[Evergine.Mathematics.Vector3,Evergine.Mathematics]],Evergine.Framework
-            Name: LocalPosition
-            Target: fd1bef0c-e8eb-4aa4-bb8f-a24711c06922
-            TypedValue:
+      - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+        Name: dicom3D
+        Tag: DICOM3D
+        IsEnabled: true
+        IsStatic: false
+        Components:
+          - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+            Id: b591134f-aff3-4213-8f9a-48be2a5b10dc
+            IsEnabled: true
+            LocalOrientation:
+              W: 1.0
               X: 0.0
               Y: 0.0
               Z: 0.0
-        RemovedComponents: []
-        Source: e2a0f2bc-abf8-4aca-afd4-f3d06aebfd74
-      - !Evergine.Framework.Assets.AssetSources.Entities.PrefabInstanceModel,Evergine.Framework
-        EntityLinks: {}
-        Id: 9c2a7233-1706-4318-acce-7e951934e20f
-        IdDictionary:
-          07ad6ebd-7db1-4805-b2c2-8384aeb8cebc: 07ad6ebd-7db1-4805-b2c2-8384aeb8cebc
-          3db9333d-cab6-4720-8384-c96a2de55057: 3db9333d-cab6-4720-8384-c96a2de55057
-          3fe09e21-13a3-4f80-853e-e3b60c743220: 3fe09e21-13a3-4f80-853e-e3b60c743220
-          4cee63aa-8f74-4b85-bd89-02a29c396258: 4cee63aa-8f74-4b85-bd89-02a29c396258
-          7cc0c47a-7720-4de3-acf5-fd3e53fd5d92: 7cc0c47a-7720-4de3-acf5-fd3e53fd5d92
-          7faa3855-2793-4ed9-8446-ff9110e468f2: 7faa3855-2793-4ed9-8446-ff9110e468f2
-          9b8aac20-bd30-4c59-a110-87bedfd7ad54: 9b8aac20-bd30-4c59-a110-87bedfd7ad54
-          9c2a7233-1706-4318-acce-7e951934e20f: 9c2a7233-1706-4318-acce-7e951934e20f
-          9de2976e-fbeb-4c73-a3b4-3a855659ebc6: 9de2976e-fbeb-4c73-a3b4-3a855659ebc6
-          a43a6073-1039-46bc-8e64-775bbe2996a2: a43a6073-1039-46bc-8e64-775bbe2996a2
-          cdbc0bcc-cf7d-4fe1-b232-441627b9be9f: cdbc0bcc-cf7d-4fe1-b232-441627b9be9f
-        Modifications:
-          - !Evergine.Framework.Assets.AssetSources.Entities.PrefabModification%25601[[Evergine.Mathematics.Vector3,Evergine.Mathematics]],Evergine.Framework
-            Name: LocalPosition
-            Target: 3db9333d-cab6-4720-8384-c96a2de55057
-            TypedValue:
+            LocalPosition:
               X: 0.0
               Y: 0.0
               Z: 0.0
-        RemovedComponents: []
-        Source: c38c8570-57db-4736-bdba-4b1e8515325c
-      - !Evergine.Framework.Assets.AssetSources.Entities.PrefabInstanceModel,Evergine.Framework
-        EntityLinks: {}
-        Id: 2c4d39ea-4de8-43b8-a6f4-4901a6a5b680
-        IdDictionary:
-          0d44615d-4031-49be-8407-656c5f842e9f: 0d44615d-4031-49be-8407-656c5f842e9f
-          2c4d39ea-4de8-43b8-a6f4-4901a6a5b680: 2c4d39ea-4de8-43b8-a6f4-4901a6a5b680
-          80093600-aff9-4f53-b967-6314c3b3689a: 80093600-aff9-4f53-b967-6314c3b3689a
-          81511c29-6c98-4df0-92d9-faafdc6982dd: 81511c29-6c98-4df0-92d9-faafdc6982dd
-          92b0ba56-ad3e-4399-9754-e21fb3184be5: 92b0ba56-ad3e-4399-9754-e21fb3184be5
-          9bd0cbe9-3e29-42fd-976f-485a243dd233: 9bd0cbe9-3e29-42fd-976f-485a243dd233
-        Modifications:
-          - !Evergine.Framework.Assets.AssetSources.Entities.PrefabModification%25601[[Evergine.Mathematics.Vector3,Evergine.Mathematics]],Evergine.Framework
-            Name: LocalPosition
-            Target: 92b0ba56-ad3e-4399-9754-e21fb3184be5
-            TypedValue:
+            LocalScale:
+              X: 160.0
+              Y: 130.0
+              Z: 160.0
+          - !Evergine.Components.Graphics3D.CylinderMesh,Evergine.Components
+            Id: d4cb7b17-cbe9-4125-81fc-5d030803d392
+            Diameter: 1.0
+            Height: 1.0
+            IsEnabled: true
+            Tessellation: 50
+          - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
+            Id: de86f005-8106-48e8-b12b-b4cf2a40bddf
+            AsignedTo: Default
+            IsEnabled: true
+            Material: 2401217d-a1cd-455e-acc3-12019b48000a
+            UseCopy: false
+          - !Evergine.Dicom.DicomComponent,Evergine.Dicom
+            Id: c33b1bcb-e8a3-47ba-bc18-d1841271c3e2
+            DitheringEnabled: false
+            IsEnabled: true
+            WindowRange:
+              X: 1800.0
+              Y: 3000.0
+          - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
+            Id: fc82dc8f-986e-40c9-995d-9a62e82efb05
+            DebugBoundingbox: true
+            IsCullingEnabled: true
+            IsEnabled: true
+            OrderBias: 0
+            RenderFlags: CastShadows
+        Children: []
+        Id: 1a12addc-bf71-4e14-9c8a-c536599e248b
+      - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+        Name: dicom2DX
+        Tag: DICOM2DX
+        IsEnabled: false
+        IsStatic: false
+        Components:
+          - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+            Id: cf458ba1-8fbf-456b-ac21-f11dfcd6ca53
+            IsEnabled: true
+            LocalOrientation:
+              W: 1.0
               X: 0.0
               Y: 0.0
               Z: 0.0
-        RemovedComponents: []
-        Source: c88b29d1-85f3-4568-ad26-24793308753e
-      - !Evergine.Framework.Assets.AssetSources.Entities.PrefabInstanceModel,Evergine.Framework
-        EntityLinks: {}
-        Id: e865cee2-f2b5-4e68-8869-fd410970dc07
-        IdDictionary:
-          1b4c3d88-c3cf-45a2-a78d-3eac45f1c410: 1b4c3d88-c3cf-45a2-a78d-3eac45f1c410
-          2015eabd-f839-4a5c-ac5e-eac3db88fdef: 2015eabd-f839-4a5c-ac5e-eac3db88fdef
-          839b7288-4348-42a7-b34e-c9571479c9da: 839b7288-4348-42a7-b34e-c9571479c9da
-          c857fe82-5f68-437d-afbd-8f8a93af78fc: c857fe82-5f68-437d-afbd-8f8a93af78fc
-          e865cee2-f2b5-4e68-8869-fd410970dc07: e865cee2-f2b5-4e68-8869-fd410970dc07
-          f7b8a47e-87dd-42bf-be01-8622ae050492: f7b8a47e-87dd-42bf-be01-8622ae050492
-        Modifications:
-          - !Evergine.Framework.Assets.AssetSources.Entities.PrefabModification%25601[[Evergine.Mathematics.Vector3,Evergine.Mathematics]],Evergine.Framework
-            Name: LocalPosition
-            Target: f7b8a47e-87dd-42bf-be01-8622ae050492
-            TypedValue:
+            LocalPosition:
               X: 0.0
               Y: 0.0
               Z: 0.0
-        RemovedComponents: []
-        Source: ca7636c0-911e-4897-9329-b0346a1cf610
+            LocalScale:
+              X: 1.0
+              Y: 1.0
+              Z: 1.0
+          - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
+            Id: 56662f7b-8e5c-469e-9ee5-b105ce082190
+            AsignedTo: Default
+            IsEnabled: true
+            Material: a27d3d8d-535d-4f43-b6bb-4dc34fe3baa6
+            UseCopy: false
+          - !Evergine.Components.Graphics3D.PlaneMesh,Evergine.Components
+            Id: 763cfec3-2ba1-4c67-994b-eadcb782a53f
+            Height: 200.0
+            IsEnabled: true
+            Origin:
+              X: 0.5
+              Y: 0.5
+            PlaneNormal: XPositive
+            TwoSides: false
+            UMirror: false
+            UOffset: 0.0
+            UTile: 1.0
+            VMirror: false
+            VOffset: 0.0
+            VTile: 1.0
+            Width: 200.0
+          - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
+            Id: 1b2f55e7-92cd-49a3-9b60-82847644147d
+            DebugBoundingbox: true
+            IsCullingEnabled: true
+            IsEnabled: true
+            OrderBias: 0
+            RenderFlags: CastShadows
+          - !Evergine.Dicom.Dicom2DViewComponent,Evergine.Dicom
+            Id: 4f31e89d-5855-4940-8eaa-345345a22a90
+            Dicom: null
+            IsEnabled: true
+        Children: []
+        Id: 0875b5b6-bfbe-445d-b28d-1ebb3d41799b
+      - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+        Name: dicom2DY
+        Tag: DICOM2DY
+        IsEnabled: true
+        IsStatic: false
+        Components:
+          - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+            Id: 4859b871-a945-471a-98f2-e82733286e6c
+            IsEnabled: true
+            LocalOrientation:
+              W: 1.0
+              X: 0.0
+              Y: 0.0
+              Z: 0.0
+            LocalPosition:
+              X: 0.0
+              Y: 0.0
+              Z: 0.0
+            LocalScale:
+              X: 1.0
+              Y: 1.0
+              Z: 1.0
+          - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
+            Id: 97cfa8ff-7e2c-45c0-a40d-d431069a5079
+            AsignedTo: Default
+            IsEnabled: true
+            Material: a27d3d8d-535d-4f43-b6bb-4dc34fe3baa6
+            UseCopy: false
+          - !Evergine.Components.Graphics3D.PlaneMesh,Evergine.Components
+            Id: 370134f0-6f8c-4a29-8981-66610d38ed19
+            Height: 200.0
+            IsEnabled: true
+            Origin:
+              X: 0.5
+              Y: 0.5
+            PlaneNormal: YPositive
+            TwoSides: false
+            UMirror: false
+            UOffset: 0.0
+            UTile: 1.0
+            VMirror: false
+            VOffset: 0.0
+            VTile: 1.0
+            Width: 200.0
+          - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
+            Id: 5c8b8c0c-fb40-479e-8105-cda5a3c7dec4
+            DebugBoundingbox: true
+            IsCullingEnabled: true
+            IsEnabled: true
+            OrderBias: 0
+            RenderFlags: CastShadows
+          - !Evergine.Dicom.Dicom2DViewComponent,Evergine.Dicom
+            Id: 360b0b3a-e711-4552-a69c-ca0e6c20afa8
+            Dicom: null
+            IsEnabled: true
+        Children: []
+        Id: 2f9fbbed-c908-4752-99fc-3e1c0978d6d5
+      - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+        Name: dicom2DZ
+        Tag: DICOM2DZ
+        IsEnabled: true
+        IsStatic: false
+        Components:
+          - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+            Id: 2e8132e3-b6e0-4e75-b95e-cc17bb1f5041
+            IsEnabled: true
+            LocalOrientation:
+              W: 1.0
+              X: 0.0
+              Y: 0.0
+              Z: 0.0
+            LocalPosition:
+              X: 0.0
+              Y: 0.0
+              Z: 0.0
+            LocalScale:
+              X: 1.0
+              Y: 1.0
+              Z: 1.0
+          - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
+            Id: ec779673-6913-4b5c-9e1f-b5840d5676f8
+            AsignedTo: Default
+            IsEnabled: true
+            Material: a27d3d8d-535d-4f43-b6bb-4dc34fe3baa6
+            UseCopy: false
+          - !Evergine.Components.Graphics3D.PlaneMesh,Evergine.Components
+            Id: bd515f8e-e0dd-4dab-844e-a83503c0dd39
+            Height: 200.0
+            IsEnabled: true
+            Origin:
+              X: 0.5
+              Y: 0.5
+            PlaneNormal: ZPositive
+            TwoSides: false
+            UMirror: false
+            UOffset: 0.0
+            UTile: 1.0
+            VMirror: false
+            VOffset: 0.0
+            VTile: 1.0
+            Width: 200.0
+          - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
+            Id: 98cc8231-fdb8-4a6a-b60b-c347ab58aee7
+            DebugBoundingbox: true
+            IsCullingEnabled: true
+            IsEnabled: true
+            OrderBias: 0
+            RenderFlags: CastShadows
+          - !Evergine.Dicom.Dicom2DViewComponent,Evergine.Dicom
+            Id: 6c0954ca-7c10-4685-9f56-7242f6aee245
+            Dicom: null
+            IsEnabled: true
+        Children: []
+        Id: 89d4f6a8-9156-46fa-8869-f93d30cbcb9b
     Id: 313fcbb4-28d5-459d-81d7-0cf17698f111
   - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
     Name: CameraRoot
