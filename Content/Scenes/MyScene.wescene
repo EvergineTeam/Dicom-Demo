@@ -133,7 +133,7 @@ Items:
       - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
         Name: dicom2DY
         Tag: DICOM2DY
-        IsEnabled: true
+        IsEnabled: false
         IsStatic: false
         Components:
           - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
@@ -190,7 +190,7 @@ Items:
       - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
         Name: dicom2DZ
         Tag: DICOM2DZ
-        IsEnabled: true
+        IsEnabled: false
         IsStatic: false
         Components:
           - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
@@ -267,34 +267,30 @@ Items:
           X: 1.0
           Y: 1.0
           Z: 1.0
-      - !DicomDemo.OrbitCamera.TouchAndMouseZoomBehavior,DicomDemo
-        Id: c4951d95-979d-4eb0-8bea-7e3e60d30ab4
-        CameraTag: null
-        InitialDistance: 0.550000012
-        InverseScroll: false
+      - !DicomDemo.OrbitBehavior,DicomDemo
+        Id: 13b1b24e-94de-42b1-847f-dc55696c9e3d
         IsEnabled: true
-        MaxDistance: 0.800000012
-        MinDistance: 0.330000013
-        TouchSensibility: 0.00999999978
+        MaxElevationAngle: 1.48352981
+        MaxZoom: 0.349999994
+        MinElevationAngle: -1.48352981
+        MinZoom: 0.899999976
+        OrbitMouseFactor: 0.00249999994
+        OrbitSmooth: 50.0
+        TouchZoomFactor: 0.200000003
+        TranslationSmooth: 100.0
+        TranslationSpeed: 0.00150000001
         UpdateOrder: 0.5
         ZoomFactor: 0.200000003
-      - !DicomDemo.OrbitCamera.TouchAndMouseOrbitBehavior,DicomDemo
-        Id: 183064d4-037a-4059-af54-fbb920b2a299
-        CameraTag: null
-        ForceOrbitTime: 1000.0
-        IsEnabled: true
-        OrbitFactor: 0.00249999994
-        PivotTag: CameraPivot
-        UpdateOrder: 0.5
+        ZoomSmooth: 100.0
     Children:
       - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
-        Name: CameraPivot
-        Tag: CameraPivot
+        Name: Camera
+        Tag: Camera
         IsEnabled: true
         IsStatic: false
         Components:
           - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
-            Id: c59f7d43-2fb4-4438-addb-bb1766773114
+            Id: c8c11e35-2ace-4905-95c0-9b3f6205d95e
             IsEnabled: true
             LocalOrientation:
               W: 1.0
@@ -304,75 +300,51 @@ Items:
             LocalPosition:
               X: 0.0
               Y: 0.0
-              Z: 0.0
+              Z: 0.550000012
             LocalScale:
               X: 1.0
               Y: 1.0
               Z: 1.0
-        Children:
-          - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
-            Name: Camera
-            Tag: Camera
+          - !Evergine.Framework.Graphics.Camera3D,Evergine.Framework
+            Id: 364cc1a3-321c-40b5-b9e0-c30ea2579499
+            Aperture: 1.0
+            AutoDepthBounds: true
+            AutoExposureEnabled: false
+            CameraOrder: 0.0
+            ClearDepth: 1.0
+            ClearFlags: All
+            ClearStencil: 0
+            Compensation: 0.0
+            DisplayTag: null
+            Exposure: 1.0
+            FarPlane: 10.0
+            FieldOfView: 0.261799395
+            FieldOfViewAxis: Vertical
+            FocalDistance: 1.09161592
+            FocalLength: 50.0
+            FrameBuffer: null
+            FrustumCullingEnabled: true
+            HDREnabled: true
             IsEnabled: true
-            IsStatic: false
-            Components:
-              - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
-                Id: c8c11e35-2ace-4905-95c0-9b3f6205d95e
-                IsEnabled: true
-                LocalOrientation:
-                  W: 1.0
-                  X: 0.0
-                  Y: 0.0
-                  Z: 0.0
-                LocalPosition:
-                  X: 0.0
-                  Y: 0.0
-                  Z: 0.550000012
-                LocalScale:
-                  X: 1.0
-                  Y: 1.0
-                  Z: 1.0
-              - !Evergine.Framework.Graphics.Camera3D,Evergine.Framework
-                Id: 364cc1a3-321c-40b5-b9e0-c30ea2579499
-                Aperture: 1.0
-                AutoDepthBounds: true
-                AutoExposureEnabled: false
-                CameraOrder: 0.0
-                ClearDepth: 1.0
-                ClearFlags: All
-                ClearStencil: 0
-                Compensation: 0.0
-                DisplayTag: null
-                Exposure: 1.0
-                FarPlane: 10.0
-                FieldOfView: 0.261799395
-                FieldOfViewAxis: Vertical
-                FocalDistance: 1.09161592
-                FocalLength: 50.0
-                FrameBuffer: null
-                FrustumCullingEnabled: true
-                HDREnabled: true
-                IsEnabled: true
-                LayerMaskDefaultValue: true
-                LinearBackgroundColor:
-                  A: 1.0
-                  B: 0.0477757566
-                  G: 0.0315513909
-                  R: 0.0199178383
-                LogLuminanceRange: 12.0
-                MinLogLuminance: -10.0
-                NearPlane: 0.00999999978
-                Sensitivity: 100.0
-                SensorSize:
-                  X: 36.0
-                  Y: 24.0
-                ShutterSpeed: 1.20000005
-                TAU: 1.10000002
-                TagFilter: null
-                UsePhysicalParameters: false
-            Children: []
-            Id: 268262eb-f280-4642-823f-8a875ef4d390
-        Id: 8ca69087-6233-4b4f-adb2-5a0cf14e7521
+            LayerMaskDefaultValue: true
+            LinearBackgroundColor:
+              A: 1.0
+              B: 0.0477757566
+              G: 0.0315513909
+              R: 0.0199178383
+            LogLuminanceRange: 12.0
+            MinLogLuminance: -10.0
+            NearPlane: 0.00999999978
+            Sensitivity: 100.0
+            SensorSize:
+              X: 36.0
+              Y: 24.0
+            ShutterSpeed: 1.20000005
+            TAU: 1.10000002
+            TagFilter: null
+            UsePhysicalParameters: false
+        Children: []
+        Id: 268262eb-f280-4642-823f-8a875ef4d390
     Id: 008b551a-5649-48e4-9bc0-5756e76e464c
 Managers:
   - !Evergine.Framework.Managers.AssetSceneManager,Evergine.Framework
