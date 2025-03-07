@@ -2,12 +2,12 @@
 Items:
   - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
     Name: dicomRoot
-    Tag: DICOM3D
+    Tag: DICOMRoot
     IsEnabled: true
     IsStatic: false
     Components:
       - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
-        Id: 3db9333d-cab6-4720-8384-c96a2de55057
+        Id: b5bf44e0-79a8-4ee6-acf4-5b42edac124a
         IsEnabled: true
         LocalOrientation:
           W: 1.0
@@ -22,34 +22,59 @@ Items:
           X: 1.0
           Y: 1.0
           Z: 1.0
-      - !Evergine.Components.Graphics3D.CylinderMesh,Evergine.Components
-        Id: cdbc0bcc-cf7d-4fe1-b232-441627b9be9f
-        Diameter: 1.0
-        Height: 1.0
+    Children:
+      - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+        Name: dicom3D
+        Tag: DICOM3D
         IsEnabled: true
-        Tessellation: 16
-      - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
-        Id: 07ad6ebd-7db1-4805-b2c2-8384aeb8cebc
-        AsignedTo: Default
-        IsEnabled: true
-        Material: 2401217d-a1cd-455e-acc3-12019b48000a
-        UseCopy: false
-      - !Evergine.Dicom.DicomComponent,Evergine.Dicom
-        Id: 9de2976e-fbeb-4c73-a3b4-3a855659ebc6
-        DitheringEnabled: false
-        IsEnabled: true
-        WindowRange:
-          X: 1800.0
-          Y: 3000.0
-      - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
-        Id: 4cee63aa-8f74-4b85-bd89-02a29c396258
-        DebugBoundingbox: true
-        IsCullingEnabled: true
-        IsEnabled: true
-        OrderBias: 0
-        RenderFlags: CastShadows
-    Children: []
-    Id: 9c2a7233-1706-4318-acce-7e951934e20f
+        IsStatic: false
+        Components:
+          - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+            Id: 3db9333d-cab6-4720-8384-c96a2de55057
+            IsEnabled: true
+            LocalOrientation:
+              W: 1.0
+              X: 0.0
+              Y: 0.0
+              Z: 0.0
+            LocalPosition:
+              X: 0.0
+              Y: 0.0
+              Z: 0.0
+            LocalScale:
+              X: 1.0
+              Y: 1.0
+              Z: 1.0
+          - !Evergine.Components.Graphics3D.CylinderMesh,Evergine.Components
+            Id: cdbc0bcc-cf7d-4fe1-b232-441627b9be9f
+            Diameter: 1.0
+            Height: 1.0
+            IsEnabled: true
+            Tessellation: 16
+          - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
+            Id: 07ad6ebd-7db1-4805-b2c2-8384aeb8cebc
+            AsignedTo: Default
+            IsEnabled: true
+            Material: 2401217d-a1cd-455e-acc3-12019b48000a
+            UseCopy: false
+          - !Evergine.Dicom.DicomComponent,Evergine.Dicom
+            Id: 9de2976e-fbeb-4c73-a3b4-3a855659ebc6
+            AutoScale: true
+            DitheringEnabled: false
+            IsEnabled: true
+            WindowRange:
+              X: 1800.0
+              Y: 3000.0
+          - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
+            Id: 4cee63aa-8f74-4b85-bd89-02a29c396258
+            DebugBoundingbox: true
+            IsCullingEnabled: true
+            IsEnabled: true
+            OrderBias: 0
+            RenderFlags: CastShadows
+        Children: []
+        Id: 9c2a7233-1706-4318-acce-7e951934e20f
+    Id: 313fcbb4-28d5-459d-81d7-0cf17698f111
   - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
     Name: CameraRoot
     Tag: null
@@ -72,8 +97,18 @@ Items:
           X: 1.0
           Y: 1.0
           Z: 1.0
+      - !DicomDemo.OrbitCamera.TouchAndMouseZoomBehavior,DicomDemo
+        Id: c4951d95-979d-4eb0-8bea-7e3e60d30ab4
+        CameraTag: null
+        InverseScroll: false
+        IsEnabled: true
+        MaxDistance: 5.0
+        MinDistance: 1.0
+        TouchSensibility: 0.00999999978
+        UpdateOrder: 0.5
+        ZoomFactor: 0.5
       - !DicomDemo.OrbitCamera.TouchAndMouseOrbitBehavior,DicomDemo
-        Id: 6bd9bc9d-26a2-45d0-b8a7-776421c67dc7
+        Id: 183064d4-037a-4059-af54-fbb920b2a299
         CameraTag: null
         ForceOrbitTime: 1000.0
         IsEnabled: true
@@ -105,93 +140,118 @@ Items:
               Z: 1.0
         Children:
           - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
-            Name: CameraHolder
-            Tag: null
+            Name: Camera
+            Tag: Camera
             IsEnabled: true
             IsStatic: false
             Components:
               - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
-                Id: 571f5175-acc3-4771-8220-c5ead0028d43
+                Id: c8c11e35-2ace-4905-95c0-9b3f6205d95e
                 IsEnabled: true
                 LocalOrientation:
                   W: 1.0
                   X: 0.0
                   Y: 0.0
-                  Z: 0.0
+                  Z: -0.0
                 LocalPosition:
                   X: 0.0
                   Y: 0.0
-                  Z: 4.0
+                  Z: 3.5
                 LocalScale:
                   X: 1.0
                   Y: 1.0
                   Z: 1.0
-            Children:
-              - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
-                Name: Camera
-                Tag: Camera
+              - !Evergine.Framework.Graphics.Camera3D,Evergine.Framework
+                Id: 364cc1a3-321c-40b5-b9e0-c30ea2579499
+                Aperture: 1.0
+                AutoDepthBounds: true
+                AutoExposureEnabled: false
+                CameraOrder: 0.0
+                ClearDepth: 1.0
+                ClearFlags: All
+                ClearStencil: 0
+                Compensation: 0.0
+                DisplayTag: null
+                Exposure: 1.0
+                FarPlane: 10.0
+                FieldOfView: 0.34906584
+                FieldOfViewAxis: Vertical
+                FocalDistance: 1.09161592
+                FocalLength: 50.0
+                FrameBuffer: null
+                FrustumCullingEnabled: true
+                HDREnabled: true
                 IsEnabled: true
-                IsStatic: false
-                Components:
-                  - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
-                    Id: c8c11e35-2ace-4905-95c0-9b3f6205d95e
-                    IsEnabled: true
-                    LocalOrientation:
-                      W: 1.0
-                      X: 0.0
-                      Y: 0.0
-                      Z: 0.0
-                    LocalPosition:
-                      X: 0.0
-                      Y: 0.0
-                      Z: 0.0
-                    LocalScale:
-                      X: 1.0
-                      Y: 1.0
-                      Z: 1.0
-                  - !Evergine.Framework.Graphics.Camera3D,Evergine.Framework
-                    Id: 364cc1a3-321c-40b5-b9e0-c30ea2579499
-                    Aperture: 1.0
-                    AutoDepthBounds: true
-                    AutoExposureEnabled: false
-                    CameraOrder: 0.0
-                    ClearDepth: 1.0
-                    ClearFlags: All
-                    ClearStencil: 0
-                    Compensation: 0.0
-                    DisplayTag: null
-                    Exposure: 1.0
-                    FarPlane: 10.0
-                    FieldOfView: 0.34906584
-                    FieldOfViewAxis: Vertical
-                    FocalDistance: 1.09161592
-                    FocalLength: 50.0
-                    FrameBuffer: null
-                    FrustumCullingEnabled: true
-                    HDREnabled: true
-                    IsEnabled: true
-                    LayerMaskDefaultValue: true
-                    LinearBackgroundColor:
-                      A: 1.0
-                      B: 0.0242229421
-                      G: 0.0143105192
-                      R: 0.00969632808
-                    LogLuminanceRange: 12.0
-                    MinLogLuminance: -10.0
-                    NearPlane: 0.100000001
-                    Sensitivity: 100.0
-                    SensorSize:
-                      X: 36.0
-                      Y: 24.0
-                    ShutterSpeed: 1.20000005
-                    TAU: 1.10000002
-                    TagFilter: null
-                    UsePhysicalParameters: false
-                Children: []
-                Id: 268262eb-f280-4642-823f-8a875ef4d390
-            Id: 885a4bf3-2fbb-479a-bcd1-7b3b5bec5de6
+                LayerMaskDefaultValue: true
+                LinearBackgroundColor:
+                  A: 1.0
+                  B: 0.0242229421
+                  G: 0.0143105192
+                  R: 0.00969632808
+                LogLuminanceRange: 12.0
+                MinLogLuminance: -10.0
+                NearPlane: 0.100000001
+                Sensitivity: 100.0
+                SensorSize:
+                  X: 36.0
+                  Y: 24.0
+                ShutterSpeed: 1.20000005
+                TAU: 1.10000002
+                TagFilter: null
+                UsePhysicalParameters: false
+            Children: []
+            Id: 268262eb-f280-4642-823f-8a875ef4d390
         Id: 8ca69087-6233-4b4f-adb2-5a0cf14e7521
     Id: 008b551a-5649-48e4-9bc0-5756e76e464c
+  - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+    Name: directionalLight
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+        Id: 6cba291b-cde1-43fd-a83a-b581eb9c0d1d
+        IsEnabled: true
+        LocalOrientation:
+          W: 0.940083563
+          X: -0.323739111
+          Y: 0.10110876
+          Z: 0.0348191112
+        LocalPosition:
+          X: 1.78473425
+          Y: 0.0449250937
+          Z: 2.43459463
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !Evergine.Framework.Graphics.DirectionalLight,Evergine.Framework
+        Id: 2c7b199e-a551-45a6-b44f-72e1c94ef70e
+        Color:
+          A: 255
+          B: 255
+          G: 255
+          R: 255
+        DebugMode: false
+        GammaDistribution: 0.800000012
+        Intensity: 1.0
+        IsEnabled: true
+        IsShadowEnabled: false
+        LinearColor:
+          A: 1.0
+          B: 1.0
+          G: 1.0
+          R: 1.0
+        ShadowBias: 0.00499999989
+        ShadowDistance: 80.0
+        ShadowOpacity: 1.0
+        SplitDistance:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+    Children: []
+    Id: 99b71b8c-81b8-48ec-8b42-937ef85b56be
 Managers:
   - !Evergine.Framework.Managers.AssetSceneManager,Evergine.Framework
     Id: 4ae9964a-5a8a-463f-b714-050389b3b68c

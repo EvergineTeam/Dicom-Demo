@@ -9,7 +9,7 @@ using Evergine.Mathematics;
 
 namespace DicomDemo.OrbitCamera
 {
-    public class TouchAndMouseOrbitBehavior : OrbitBehavior
+    public class TouchAndMouseOrbitBehavior : CameraOrbitBehavior
     {
         private static readonly TimeSpan maxTimeBetweenResetPoints = TimeSpan.FromMilliseconds(150);
 
@@ -22,17 +22,17 @@ namespace DicomDemo.OrbitCamera
         {
             position = default;
 
-            if ((this.touchDispatcher != null) && (this.touchDispatcher.Points.Count > 0))
+            if ((this.TouchDispatcher != null) && (this.TouchDispatcher.Points.Count > 0))
             {
-                if (this.touchDispatcher.Points.Count == 1)
+                if (this.TouchDispatcher.Points.Count == 1)
                 {
-                    position = this.touchDispatcher.Points[0].Position.ToVector2();
+                    position = this.TouchDispatcher.Points[0].Position.ToVector2();
                 }
-                else if (this.touchDispatcher.Points.Count == 2 &&
-                    this.touchDispatcher.Points.Any(item => item.State == ButtonState.Releasing) &&
-                    this.touchDispatcher.Points.Any(item => item.State == ButtonState.Pressed))
+                else if (this.TouchDispatcher.Points.Count == 2 &&
+                    this.TouchDispatcher.Points.Any(item => item.State == ButtonState.Releasing) &&
+                    this.TouchDispatcher.Points.Any(item => item.State == ButtonState.Pressed))
                 {
-                    position = this.touchDispatcher.Points
+                    position = this.TouchDispatcher.Points
                         .First(item => item.State == ButtonState.Pressed)
                         .Position.ToVector2();
                 }
@@ -41,9 +41,9 @@ namespace DicomDemo.OrbitCamera
                     position = this.lastPointerPosition;
                 }
             }
-            else if (this.mouseDispatcher != null)
+            else if (this.MouseDispatcher != null)
             {
-                position = this.mouseDispatcher.Position.ToVector2();
+                position = this.MouseDispatcher.Position.ToVector2();
             }
             else
             {
@@ -55,16 +55,16 @@ namespace DicomDemo.OrbitCamera
 
         protected override bool IsOrbitRequested()
         {
-            var isRequested = this.touchDispatcher.Points.Count == 1;
+            var isRequested = this.TouchDispatcher.Points.Count == 1;
 
-            if (isRequested && this.touchDispatcher.Points[0].State == ButtonState.Pressing)
+            if (isRequested && this.TouchDispatcher.Points[0].State == ButtonState.Pressing)
             {
                 this.lastPointerPosition = this.currentPointerPosition;
             }
 
             if(!isRequested)
             {
-                isRequested = this.mouseDispatcher.IsButtonDown(MouseButtons.Left) || this.mouseDispatcher.IsButtonDown(MouseButtons.Right);
+                isRequested = this.MouseDispatcher.IsButtonDown(MouseButtons.Left) || this.MouseDispatcher.IsButtonDown(MouseButtons.Right);
             }
 
             return isRequested;

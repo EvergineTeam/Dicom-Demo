@@ -6,15 +6,21 @@ using Evergine.Framework.Graphics;
 using Evergine.Framework.Managers;
 using Evergine.Mathematics;
 using Evergine.UI;
+using SkiaSharp;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace DicomDemo
 {
     public class MyScene : Scene
     {
-        //public Entity[] dicomEntities = new Entity[4]; // 0: 2D-X, 1: 2D-Y, 2: 2D-Z, 3: 3D
+        private Entity dicom3DEntity;
+        private Entity dicom2DX;
+        private Entity dicom2DY;
+        private Entity dicom2DZ;
+
         private bool isWasm = false;
 
         public override void RegisterManagers()
@@ -36,26 +42,29 @@ namespace DicomDemo
 
         protected override async void CreateScene()
         {
-            // substitute camera RenderPath
-            var cameraComponent = this.Managers.EntityManager.FindFirstComponentOfType<Camera>(isExactType: false);
-            cameraComponent.RenderPath = new CustomRenderPath((RenderManager)this.Managers.RenderManager);
-
+            this.SetCustomRenderPath();
 
             var dicomPath = new AssetsDirectory().RootPath + "/Dicoms/sample_dicom_2.zip";
-            var dicomComponent = this.Managers.EntityManager.FindFirstComponentOfType<DicomComponent>();
-            var success = await dicomComponent.LoadFromFile(dicomPath);
 
-            //this.dicomEntities = await this.CreateDicomEntities(dicomPath, true, true, true);
+            this.dicom3DEntity = this.Managers.EntityManager.FindAllByTag("DICOM3D").FirstOrDefault();
+            var dicomComponent = this.dicom3DEntity.FindComponent<DicomComponent>();
 
-            if (success)
+            if (await dicomComponent.LoadFromFile(dicomPath))
             {
-                this.setupCamera();
+                this.SetupScale();
                 this.createImguiBehavior();
             }
             else
             {
                 Debug.Assert(false, "Error loading DICOM");
             }
+        }
+
+        private void SetCustomRenderPath()
+        {
+            // substitute camera RenderPath
+            var cameraComponent = this.Managers.EntityManager.FindFirstComponentOfType<Camera>(isExactType: false);
+            cameraComponent.RenderPath = new CustomRenderPath((RenderManager)this.Managers.RenderManager);
         }
 
         public bool IsDicomEntityEnabled(int index)
@@ -81,18 +90,15 @@ namespace DicomDemo
             }
         }
 
-        private void setupCamera()
+        private void SetupScale()
         {
-            ////var dicomScale = this.dicomEntities[3].FindComponent<Transform3D>().Scale;
-            ////var cameraDistance = 1.1f * MathF.Max(dicomScale.X, MathF.Max(dicomScale.Y, dicomScale.Z));
+            
+            var dicomScale = this.dicom3DEntity.FindComponent<Transform3D>().Scale;
+            var dicomRadius = MathF.Max(dicomScale.X, MathF.Max(dicomScale.Y, dicomScale.Z));
 
-            ////var orbitCamera = this.Managers.EntityManager.FindComponentsOfType<TouchAndMouseOrbitBehavior>();
-            ////orbitCamera.s
 
-            ////var cameraEntity = this.Managers.EntityManager.Find("Camera");
-            ////var transform = cameraEntity.FindComponent<Transform3D>();
-            ////transform.Position = new Vector3(0, 0, cameraDistance);
-            ////transform.Orientation = Quaternion.Identity;
+            var rootTransform = this.Managers.EntityManager.FindFirstComponentOfType<Transform3D>(tag: "DICOMRoot");
+            rootTransform.LocalScale = Vector3.One * (1 / dicomRadius);
         }
     }
 }

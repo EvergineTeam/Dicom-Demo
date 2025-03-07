@@ -1,74 +1,42 @@
 ﻿using Evergine.Common.Input.Keyboard;
 using Evergine.Common.Input.Mouse;
 using Evergine.Common.Input.Pointer;
-using Evergine.Framework;
 using Evergine.Framework.Graphics;
-using Evergine.Framework.Managers;
-using Evergine.Mathematics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Evergine.Framework;
 
 namespace DicomDemo.OrbitCamera
 {
     public abstract class InputObserver : Behavior
     {
-        protected Camera3D camera;
+        protected Camera3D Camera;
 
-        protected KeyboardDispatcher keyboardDispatcher;
+        protected KeyboardDispatcher KeyboardDispatcher;
 
-        protected MouseDispatcher mouseDispatcher;
+        protected MouseDispatcher MouseDispatcher;
 
-        protected PointerDispatcher touchDispatcher;
+        protected PointerDispatcher TouchDispatcher;
 
-        public string CameraTag { get; set; }
+        ////public Vector2 ScreenSize;
+        private Display display;
 
-        private Camera3D GetCamera()
-        {
-            if (string.IsNullOrEmpty(this.CameraTag))
-            {
-                return (this.Managers.RenderManager as RenderManager).RegisteredCameras.Cast<Camera3D>().FirstOrDefault();
-            }
-            else
-            {
-                return this.Managers.EntityManager.FindFirstComponentOfType<Camera3D>(tag: this.CameraTag);
-            }
-        }
+        public string CameraTag;
 
         protected override void OnActivated()
         {
-            this.camera = this.GetCamera();
+            this.Camera = this.Managers.RenderManager.ActiveCamera3D;
 
-            var display = this.camera?.Display;
+            this.display = this.Camera?.Display;
 
-            if (display != null)
+            if (this.display != null)
             {
-                this.keyboardDispatcher = display.KeyboardDispatcher;
-                this.mouseDispatcher = display.MouseDispatcher;
-                this.touchDispatcher = display.TouchDispatcher;
+                this.KeyboardDispatcher = this.display.KeyboardDispatcher;
+                this.MouseDispatcher = this.display.MouseDispatcher;
+                this.TouchDispatcher = this.display.TouchDispatcher;
             }
 
             base.OnActivated();
         }
 
-        protected bool GetPointerPosition(out Vector2 position)
-        {
-            var display = this.camera.Display;
-
-            if (this.mouseDispatcher.Points.Count > 0)
-            {
-                position = this.mouseDispatcher.Points[0].Position.ToVector2();
-                return true;
-            }
-
-            if (this.touchDispatcher.Points.Count > 0)
-            {
-                position = this.touchDispatcher.Points[0].Position.ToVector2();
-                return true;
-            }
-
-            position = this.mouseDispatcher.Position.ToVector2();
-            return position != Vector2.Zero;
-        }
+        public abstract void Reset();
     }
 }

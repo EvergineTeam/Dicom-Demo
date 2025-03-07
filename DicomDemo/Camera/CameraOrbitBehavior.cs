@@ -13,7 +13,7 @@ using Evergine.Mathematics;
 
 namespace DicomDemo.OrbitCamera
 {
-    public abstract class OrbitBehavior : InputObserver
+    public abstract class CameraOrbitBehavior : InputObserver
     {
         private const int OrbitSmoothTimeMilliseconds = 50;
 
@@ -60,7 +60,7 @@ namespace DicomDemo.OrbitCamera
         /// <summary>
         /// Reset camera position.
         /// </summary>
-        public void Reset()
+        public override void Reset()
         {
             this.targetTransform.LocalPosition = Vector3.Zero;
             this.targetTransform.LocalRotation = Vector3.Zero;
