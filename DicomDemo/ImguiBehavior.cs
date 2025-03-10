@@ -26,14 +26,23 @@ namespace DicomDemo
         protected override void Update(TimeSpan gameTime)
         {
             // Imgui
-            if (this.imguiDemoOpen)
-            {
-                ImguiNative.igShowDemoWindow(this.imguiDemoOpen.Pointer());
-            }
-
             this.dicomViews();
             this.dicomWindowRangeControls();
             this.dicomDitheringCheckBox();
+            this.dicomMouseLegend();
+        }
+
+        private void dicomMouseLegend()
+        {
+            ImguiNative.igSpacing();
+            ImguiNative.igSpacing();
+            ImguiNative.igSpacing();
+            ImguiNative.igSpacing();
+            ImguiNative.igSpacing();
+            ImguiNative.igText("Controls: \n" +
+                "- Mouse right button: Orbit \n" +
+                "- Mouse scroll: Zoom \n" +
+                "- Mouse left button: Panning");
         }
 
         private void dicomViews()
@@ -70,7 +79,6 @@ namespace DicomDemo
         {
             if (this.dicom != null)
             {
-                //ImguiNative.igBegin("DICOM", null, 0);
                 var range = this.dicom.WindowRange;
                 bool changed = false;
                 changed |= ImguiNative.igSliderFloat("Window Min", &range.X, dicom.LimitWindowRange.X, dicom.LimitWindowRange.Y, "%.3f", 0);
@@ -79,7 +87,6 @@ namespace DicomDemo
                 {
                     this.dicom.WindowRange = range;
                 }
-                //ImguiNative.igEnd();
             }
         }
 

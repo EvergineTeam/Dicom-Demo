@@ -179,7 +179,7 @@ namespace DicomDemo
             Vector2 deltaRotation = default;
             
             // Mouse orbit...
-            if (this.mouseDispatcher != null && this.mouseDispatcher.IsButtonDown(MouseButtons.Left))
+            if (this.mouseDispatcher != null && this.mouseDispatcher.IsButtonDown(MouseButtons.Right))
             {
                 deltaRotation += this.mouseDispatcher.PositionDelta.ToVector2() * this.OrbitMouseFactor;
             }
@@ -276,7 +276,7 @@ namespace DicomDemo
         private void HandleTranslation()
         {
             // Mouse translation...
-            if (this.mouseDispatcher?.IsButtonDown(MouseButtons.Right) == true || this.mouseDispatcher?.IsButtonDown(MouseButtons.Middle) == true)
+            if (this.mouseDispatcher?.IsButtonDown(MouseButtons.Middle) == true)
             {
                 var deltaTranslation = this.mouseDispatcher.PositionDelta.ToVector2() * this.TranslationSpeed * this.targetTransform.LocalPosition.Z;
                 this.targetTranslation += this.targetTransform.Left * deltaTranslation.X + this.targetTransform.Up * deltaTranslation.Y;
