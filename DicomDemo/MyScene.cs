@@ -1,4 +1,3 @@
-using DicomDemo.OrbitCamera;
 using Evergine.Common.IO;
 using Evergine.Dicom;
 using Evergine.Framework;
@@ -17,11 +16,6 @@ namespace DicomDemo
 {
     public class MyScene : Scene
     {
-        ////public Entity Dicom3D;
-        ////public Entity Dicom2DX;
-        ////public Entity Dicom2DY;
-        ////public Entity Dicom2DZ;
-
         public Entity[] DicomEntities;
         public Transform3D[] Dicom2DTransforms;
 
@@ -50,11 +44,6 @@ namespace DicomDemo
             this.SetCustomRenderPath();
 
             var dicomPath = new AssetsDirectory().RootPath + "/Dicoms/sample_dicom_2.zip";
-
-            ////this.Dicom3D = this.Managers.EntityManager.FindAllByTag("DICOM3D").FirstOrDefault();
-            ////this.Dicom2DX = this.Managers.EntityManager.FindAllByTag("DICOM2DX").FirstOrDefault();
-            ////this.Dicom2DY = this.Managers.EntityManager.FindAllByTag("DICOM2DY").FirstOrDefault();
-            ////this.Dicom2DZ = this.Managers.EntityManager.FindAllByTag("DICOM2DZ").FirstOrDefault();
 
             this.DicomEntities = new Entity[]
             {
@@ -91,7 +80,7 @@ namespace DicomDemo
         {
             // substitute camera RenderPath
             var cameraComponent = this.Managers.EntityManager.FindFirstComponentOfType<Camera>(isExactType: false);
-            cameraComponent.RenderPath = new CustomRenderPath((RenderManager)this.Managers.RenderManager);
+            cameraComponent.RenderPath = new DicomRenderPath((RenderManager)this.Managers.RenderManager);
         }
 
         public bool IsDicomEntityEnabled(int index)

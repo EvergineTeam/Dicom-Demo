@@ -1,7 +1,7 @@
 Packages:
   - Id: Evergine.Core
     LocalPath: null
-    Version: 2025.2.28.191-nightly
+    Version: 2025.3.8.185-nightly
   - Id: Evergine.Dicom
     LocalPath: null
     Version: 2025.3.3.23-nightly
