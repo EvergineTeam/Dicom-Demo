@@ -25,11 +25,17 @@ namespace DicomDemo
 
         protected override void Update(TimeSpan gameTime)
         {
+            bool open = true;
+            ImguiNative.igBegin("DICOM control", open.Pointer(), ImGuiWindowFlags.None);
+            ImguiNative.igSetWindowSize_Vec2(new Vector2(300, 300), ImGuiCond.Always);
+            ImguiNative.igSetWindowPos_Vec2(new Vector2(15), ImGuiCond.Always);
             // Imgui
             this.dicomViews();
             this.dicomWindowRangeControls();
             this.dicomDitheringCheckBox();
             this.dicomMouseLegend();
+
+            ImguiNative.igEnd();
         }
 
         private void dicomMouseLegend()
