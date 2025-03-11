@@ -40,11 +40,10 @@ namespace DicomDemo
 
         private void dicomMouseLegend()
         {
-            ImguiNative.igSpacing();
-            ImguiNative.igSpacing();
-            ImguiNative.igSpacing();
-            ImguiNative.igSpacing();
-            ImguiNative.igSpacing();
+            for (int i = 0; i < 5; i++)
+            {
+                ImguiNative.igSpacing();
+            }
             ImguiNative.igText("Controls: \n" +
                 "- Mouse right button: Orbit \n" +
                 "- Mouse scroll: Zoom \n" +
@@ -106,28 +105,6 @@ namespace DicomDemo
                     this.dicom.DitheringEnabled = ditheringEnabled != 0;
                 }
             }
-        }
-
-        private void cubeGuizmo()
-        {
-            var io = ImguiNative.igGetIO();
-            ImguizmoNative.ImGuizmo_SetRect(0, 0, io->DisplaySize.X, io->DisplaySize.Y);
-
-            var camera = this.Managers.RenderManager.ActiveCamera3D;
-            Matrix4x4 view = camera.View;
-            Matrix4x4 project = camera.Projection;
-
-            ImguizmoNative.ImGuizmo_ViewManipulate(view.Pointer(), 2, Vector2.Zero, new Vector2(129.5f, 129.5f), 0x10101010);
-
-            Matrix4x4.Invert(ref view, out Matrix4x4 iview);
-            var translation = iview.Translation;
-            var rotation = iview.Rotation;
-
-            Vector3* r = &rotation;
-            camera.Transform.LocalRotation = *r;
-
-            Vector3* t = &translation;
-            camera.Transform.LocalPosition = *t;
         }
     }
 }
