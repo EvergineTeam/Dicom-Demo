@@ -8,8 +8,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DicomDemo", "DicomDemo\Dico
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DicomDemo.Editor", "DicomDemo.Editor\DicomDemo.Editor.csproj", "{56C65D63-2DFD-42C3-9E72-376FFB81F413}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evergine.Dicom", "..\..\..\Addons\Evergine.Dicom\Source\Evergine.Dicom\Evergine.Dicom\Evergine.Dicom.csproj", "{3870EFFB-D30D-4E45-89B1-DF12FCCEEAC8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
