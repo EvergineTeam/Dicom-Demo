@@ -2,7 +2,7 @@
 
 This sample showcases a new Evergine add-on designed for viewing DICOM files, a widely used medical imaging format. With this add-on, developers can create interactive and high-performance medical viewers, seamlessly integrating Evergine’s rendering capabilities to display 3D medical scans with precision.
 
-![demo](media/demo.gif)
+![demo](Screenshots/demo.gif)
 
 ## Documentation
 
