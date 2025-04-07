@@ -47,7 +47,7 @@ namespace DicomDemo
             ImguiNative.igText("Controls: \n" +
                 "- Mouse right button: Orbit \n" +
                 "- Mouse scroll: Zoom \n" +
-                "- Mouse left button: Panning");
+                "- Mouse Middle button: Panning");
         }
 
         private void dicomViews()
