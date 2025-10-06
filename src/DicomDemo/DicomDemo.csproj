@@ -7,14 +7,14 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Evergine.Common" Version="2025.3.18.7" />
-    <PackageReference Include="Evergine.Components" Version="2025.3.18.7" />
-    <PackageReference Include="Evergine.Framework" Version="2025.3.18.7" />
-    <PackageReference Include="Evergine.Mathematics" Version="2025.3.18.7" />
-    <PackageReference Include="Evergine.Bullet" Version="2025.3.18.7" />
-    <PackageReference Include="Evergine.Targets" Version="2025.3.18.7" />
-    <PackageReference Include="Evergine.CodeScenes" Version="2025.3.18.7" />
-    <PackageReference Include="Evergine.ImGui" Version="2025.3.18.7" />
-    <PackageReference Include="Evergine.Dicom" Version="2025.3.17.3-preview" />
+    <PackageReference Include="Evergine.Common" Version="2025.10.3.193-nightly" />
+    <PackageReference Include="Evergine.Components" Version="2025.10.3.193-nightly" />
+    <PackageReference Include="Evergine.Framework" Version="2025.10.3.193-nightly" />
+    <PackageReference Include="Evergine.Mathematics" Version="2025.10.3.193-nightly" />
+    <PackageReference Include="Evergine.Bullet" Version="2025.10.3.193-nightly" />
+    <PackageReference Include="Evergine.Targets" Version="2025.10.3.193-nightly" />
+    <PackageReference Include="Evergine.CodeScenes" Version="2025.10.3.193-nightly" />
+    <PackageReference Include="Evergine.ImGui" Version="2025.10.3.193-nightly" />
+    <PackageReference Include="Evergine.Dicom" Version="2025.10.6.56-nightly" />
   </ItemGroup>
 </Project>
