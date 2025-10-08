@@ -4,7 +4,7 @@ Packages:
     Version: 2025.10.3.193-nightly
   - Id: Evergine.Dicom
     LocalPath: null
-    Version: 2025.10.6.56-nightly
+    Version: 2025.10.6.57-nightly
 Parameters:
   MaxSkinningWeights: 4
   SparseMorphTargets: false
