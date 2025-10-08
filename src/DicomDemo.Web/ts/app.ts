@@ -58,7 +58,8 @@ class App {
     this.program.Destroy(this.canvasId);
   }
 
-  waitAndRun() {
+waitAndRun() {
+    startAssetsDownloadIfNeeded();
     if (areAllAssetsLoaded()) {
       console.log("Running...");
       this.program.Run(this.canvasId);

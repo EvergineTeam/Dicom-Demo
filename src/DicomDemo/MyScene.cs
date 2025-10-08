@@ -21,18 +21,12 @@ namespace DicomDemo
         {
             base.RegisterManagers();
 
-            this.Managers.AddManager(new global::Evergine.Bullet.BulletPhysicManager3D());
-
-            this.isWasm = RuntimeInformation.IsOSPlatform(OSPlatform.Create("WEBASSEMBLY"));
-            if (!this.isWasm)
+            this.Managers.AddManager(new ImGuiManager()
             {
-                this.Managers.AddManager(new ImGuiManager()
-                {
-                    ImGuizmoEnabled = true,
-                    ImPlotEnabled = true,
-                    ImNodesEnabled = true,
-                });
-            }
+                ImGuizmoEnabled = true,
+                ImPlotEnabled = true,
+                ImNodesEnabled = true,
+            });
         }
 
         protected override async void CreateScene()
@@ -93,12 +87,9 @@ namespace DicomDemo
 
         private void createImguiBehavior()
         {
-            if (!this.isWasm)
-            {
-                var imguiComp = new ImguiBehavior(this);
-                var imgui = new Entity().AddComponent(imguiComp);
-                Managers.EntityManager.Add(imgui);
-            }
+            var imguiComp = new ImguiBehavior(this);
+            var imgui = new Entity().AddComponent(imguiComp);
+            Managers.EntityManager.Add(imgui);
         }
     }
 }
