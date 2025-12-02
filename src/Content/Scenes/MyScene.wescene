@@ -59,7 +59,6 @@ Items:
             UseCopy: false
           - !Evergine.Dicom.DicomComponent,Evergine.Dicom
             Id: c33b1bcb-e8a3-47ba-bc18-d1841271c3e2
-            DitheringEnabled: false
             IsEnabled: true
             WindowRange:
               X: 1800.0

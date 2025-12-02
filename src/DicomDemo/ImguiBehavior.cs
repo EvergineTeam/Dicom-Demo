@@ -14,6 +14,9 @@ namespace DicomDemo
         [BindComponent(source: BindComponentSource.Scene)]
         private DicomComponent dicom = null;
 
+        [BindComponent(source: BindComponentSource.Scene)]
+        private DicomRenderer dicomRenderer = null;
+
         private MyScene scene;
 
         private bool imguiDemoOpen = false;
@@ -99,10 +102,10 @@ namespace DicomDemo
         {
             if (this.dicom != null)
             {
-                byte ditheringEnabled = (byte)(this.dicom.DitheringEnabled ? 1 : 0);
+                byte ditheringEnabled = (byte)(this.dicomRenderer.DitheringEnabled ? 1 : 0);
                 if (ImguiNative.igCheckbox("Dithering", &ditheringEnabled))
                 {
-                    this.dicom.DitheringEnabled = ditheringEnabled != 0;
+                    this.dicomRenderer.DitheringEnabled = ditheringEnabled != 0;
                 }
             }
         }
