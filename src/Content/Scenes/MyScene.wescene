@@ -70,6 +70,14 @@ Items:
             IsEnabled: true
             OrderBias: 0
             RenderFlags: CastShadows
+          - !Evergine.Dicom.DicomRenderer,Evergine.Dicom
+            Id: 070a4041-c023-4cac-a661-2c16c2f64c38
+            DebugBoundingbox: true
+            DitheringEnabled: true
+            IsCullingEnabled: true
+            IsEnabled: false
+            OrderBias: 0
+            RenderFlags: CastShadows
         Children: []
         Id: 1a12addc-bf71-4e14-9c8a-c536599e248b
       - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
@@ -123,7 +131,7 @@ Items:
             IsEnabled: true
             OrderBias: 0
             RenderFlags: CastShadows
-          - !Evergine.Dicom.Dicom2DViewComponent,Evergine.Dicom
+          - !Evergine.Dicom.DicomRenderer2D,Evergine.Dicom
             Id: 4f31e89d-5855-4940-8eaa-345345a22a90
             Dicom: null
             IsEnabled: true
@@ -180,7 +188,7 @@ Items:
             IsEnabled: true
             OrderBias: 0
             RenderFlags: CastShadows
-          - !Evergine.Dicom.Dicom2DViewComponent,Evergine.Dicom
+          - !Evergine.Dicom.DicomRenderer2D,Evergine.Dicom
             Id: 360b0b3a-e711-4552-a69c-ca0e6c20afa8
             Dicom: null
             IsEnabled: true
@@ -237,7 +245,7 @@ Items:
             IsEnabled: true
             OrderBias: 0
             RenderFlags: CastShadows
-          - !Evergine.Dicom.Dicom2DViewComponent,Evergine.Dicom
+          - !Evergine.Dicom.DicomRenderer2D,Evergine.Dicom
             Id: 6c0954ca-7c10-4685-9f56-7242f6aee245
             Dicom: null
             IsEnabled: true

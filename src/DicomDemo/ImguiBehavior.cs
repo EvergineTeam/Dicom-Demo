@@ -1,8 +1,6 @@
 ﻿using Evergine.Bindings.Imgui;
-using Evergine.Bindings.Imguizmo;
 using Evergine.Dicom;
 using Evergine.Framework;
-using Evergine.Framework.Graphics;
 using Evergine.Mathematics;
 using Evergine.UI;
 using System;

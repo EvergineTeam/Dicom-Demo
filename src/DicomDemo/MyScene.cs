@@ -52,9 +52,9 @@ namespace DicomDemo
 
             var dicomComponent = this.DicomEntities[3].FindComponent<DicomComponent>();
 
-            this.DicomEntities[0].FindComponent<Dicom2DViewComponent>().Dicom = dicomComponent;
-            this.DicomEntities[1].FindComponent<Dicom2DViewComponent>().Dicom = dicomComponent;
-            this.DicomEntities[2].FindComponent<Dicom2DViewComponent>().Dicom = dicomComponent;
+            this.DicomEntities[0].FindComponent<DicomRenderer2D>().Dicom = dicomComponent;
+            this.DicomEntities[1].FindComponent<DicomRenderer2D>().Dicom = dicomComponent;
+            this.DicomEntities[2].FindComponent<DicomRenderer2D>().Dicom = dicomComponent;
 
             if (await dicomComponent.LoadFromFile(dicomPath))
             {
