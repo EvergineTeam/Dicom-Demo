@@ -63,13 +63,6 @@ Items:
             WindowRange:
               X: 1800.0
               Y: 3000.0
-          - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
-            Id: fc82dc8f-986e-40c9-995d-9a62e82efb05
-            DebugBoundingbox: true
-            IsCullingEnabled: true
-            IsEnabled: true
-            OrderBias: 0
-            RenderFlags: CastShadows
           - !Evergine.Dicom.DicomRenderer,Evergine.Dicom
             Id: 070a4041-c023-4cac-a661-2c16c2f64c38
             DebugBoundingbox: true
