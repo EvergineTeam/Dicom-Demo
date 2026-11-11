@@ -7,13 +7,13 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Evergine.Common" Version="2026.11.5.670-nightly" />
-    <PackageReference Include="Evergine.Components" Version="2026.11.5.670-nightly" />
-    <PackageReference Include="Evergine.Framework" Version="2026.11.5.670-nightly" />
-    <PackageReference Include="Evergine.Mathematics" Version="2026.11.5.670-nightly" />
-    <PackageReference Include="Evergine.Targets" Version="2026.11.5.670-nightly" />
-    <PackageReference Include="Evergine.CodeScenes" Version="2026.11.5.670-nightly" />
-    <PackageReference Include="Evergine.ImGui" Version="2026.11.5.670-nightly" />
-    <PackageReference Include="Evergine.Dicom" Version="2026.5.26.215-nightly" />
+    <PackageReference Include="Evergine.Common" Version="2026.11.12.8" />
+    <PackageReference Include="Evergine.Components" Version="2026.11.12.8" />
+    <PackageReference Include="Evergine.Framework" Version="2026.11.12.8" />
+    <PackageReference Include="Evergine.Mathematics" Version="2026.11.12.8" />
+    <PackageReference Include="Evergine.Targets" Version="2026.11.12.8" />
+    <PackageReference Include="Evergine.CodeScenes" Version="2026.11.12.8" />
+    <PackageReference Include="Evergine.ImGui" Version="2026.11.12.8" />
+    <PackageReference Include="Evergine.Dicom" Version="2026.11.12.8-preview" />
   </ItemGroup>
 </Project>
